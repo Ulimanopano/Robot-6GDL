@@ -1,0 +1,44 @@
+' Reset_Libre_a_Home.swb  -  Robot_6GDL_V11  (Ctrl+H)
+' Regresa el robot a Home (q1..q6 = 0) sin configuraciones ni mates extra.
+' Coloca cada link en su marco DH de Home y reconstruye.
+Dim swApp As Object
+
+Function TX(mu As Object, r As Variant) As Object
+    Dim v() As Double
+    ReDim v(15)
+    Dim j As Integer
+    For j = 0 To 11
+        v(j) = CDbl(r(j))
+    Next j
+    v(12) = 1#
+    Set TX = mu.CreateTransform((v))
+End Function
+
+Sub main()
+    Set swApp = Application.SldWorks
+    Dim m As Object
+    Set m = swApp.ActiveDoc
+    If m Is Nothing Then Exit Sub
+    If m.GetType <> 2 Then Exit Sub
+    Dim mu As Object
+    Set mu = swApp.GetMathUtility
+    Dim nombres As Variant, datos As Variant
+    nombres = Array("link_1-1", "link_2-1", "link_3-1", "link_4-1", "link_5-1", "link_6-1")
+    datos = Array( _
+      Array(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.224), _
+      Array(0, 0, 1, -1, 0, 0, 0, -1, 0, 0, 0, 0.224), _
+      Array(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0.384), _
+      Array(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.544), _
+      Array(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0.544), _
+      Array(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.544))
+    Dim i As Integer, k As Integer
+    Dim c As Object
+    For k = 1 To 2
+        For i = 0 To 5
+            Set c = m.GetComponentByName(nombres(i))
+            If Not c Is Nothing Then c.Transform2 = TX(mu, datos(i))
+        Next i
+        m.EditRebuild3
+    Next k
+    m.GraphicsRedraw2
+End Sub

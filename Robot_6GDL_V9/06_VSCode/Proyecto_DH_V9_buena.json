@@ -1,0 +1,64 @@
+{
+  "format": "RobotDHModificado-1",
+  "gdl": 6,
+  "herramienta_fija": true,
+  "simplificar": false,
+  "rows": [
+    {
+      "alpha": "0",
+      "a": "0",
+      "d": "L1",
+      "theta": "theta1"
+    },
+    {
+      "alpha": "pi/2",
+      "a": "0",
+      "d": "0",
+      "theta": "theta2+pi/2"
+    },
+    {
+      "alpha": "0",
+      "a": "L2",
+      "d": "0",
+      "theta": "theta3-pi/2"
+    },
+    {
+      "alpha": "-pi/2",
+      "a": "0",
+      "d": "L3+L4",
+      "theta": "theta4"
+    },
+    {
+      "alpha": "pi/2",
+      "a": "0",
+      "d": "0",
+      "theta": "theta5"
+    },
+    {
+      "alpha": "-pi/2",
+      "a": "0",
+      "d": "0",
+      "theta": "theta6"
+    },
+    {
+      "alpha": "0",
+      "a": "0",
+      "d": "L5+Lef",
+      "theta": "0"
+    }
+  ],
+  "values": {
+    "L1": "224",
+    "L2": "160",
+    "L3": "80",
+    "L4": "80",
+    "L5": "40",
+    "Lef": "45",
+    "theta1": "0°",
+    "theta2": "0°",
+    "theta3": "0°",
+    "theta4": "0°",
+    "theta5": "0°",
+    "theta6": "0°"
+  }
+}

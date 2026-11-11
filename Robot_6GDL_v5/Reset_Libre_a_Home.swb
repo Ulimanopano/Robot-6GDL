@@ -1,0 +1,21 @@
+' Reset_Libre_a_Home.swb  -  Robot_6GDL
+' Abre la configuracion "Libre" y regresa el brazo a Home (q1..q6 = 0)
+Dim swApp As Object
+Sub main()
+    Set swApp = Application.SldWorks
+    Dim m As Object
+    Set m = swApp.ActiveDoc
+    If m Is Nothing Then Exit Sub
+    m.ShowConfiguration2 "Libre"
+    Dim i As Integer
+    For i = 1 To 6
+        m.Parameter("D1@Angulo_q" & i).SystemValue = 0
+        m.FeatureByName("Angulo_q" & i).SetSuppression2 1, 1, Empty
+    Next i
+    m.EditRebuild3
+    For i = 1 To 6
+        m.FeatureByName("Angulo_q" & i).SetSuppression2 0, 1, Empty
+    Next i
+    m.EditRebuild3
+    m.GraphicsRedraw2
+End Sub

@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Abrir programa DH del profe",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/Robot_DH_Modificado.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Prueba rápida (--self-test)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/Robot_DH_Modificado.py",
+      "args": ["--self-test"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+# Solo se suben las carpetas de los brazos; todo lo demás se ignora
+/*
+!/.gitignore
+!/README.md
+!/Robot_6GDL_v4/
+!/Robot_6GDL_v5/
+!/Robot_6GDL_V6/
+!/Robot_6GDL_V7/
+!/Robot_6GDL_V8/
+!/Robot_6GDL_V9/
+!/Robot_6GDL_V10/
+!/Robot_6GDL_V11/
+
+# Temporales de SolidWorks, MATLAB y Windows
+~$*
+*.slxc
+slprj/
+*.autosave
+*.asv
+desktop.ini
+Thumbs.db
